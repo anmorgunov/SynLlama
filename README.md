@@ -1,6 +1,7 @@
 # SynLlama: Generating Synthesizable Molecules and Their Analogs with Large Language Models 🧬
-[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Arxiv](https://img.shields.io/badge/Arxiv-2503.12602-red.svg)](https://arxiv.org/abs/2503.12602)
+[![License](https://img.shields.io/github/license/THGLab/SynLlama)](LICENSE)
+[![DOI](https://img.shields.io/badge/ACS%20Central%20Science-10.1021%2Facscentsci.5c01285-003A8F)](https://doi.org/10.1021/acscentsci.5c01285)
+
 
 ## 📖 Overview
 ![SynLlama](assets/toc.png)
@@ -47,4 +48,5 @@ If you use this code in your research, please cite:
     year = {2025}
 }
 ```
+
 
