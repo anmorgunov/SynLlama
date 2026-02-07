@@ -1,0 +1,4 @@
+synllama-data/*
+synllama-data.tar.gz
+__pycache__/
+*.egg-info
