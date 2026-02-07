@@ -4,7 +4,15 @@ import torch
 import json
 from typing import List, Dict, Any
 from transformers import AutoTokenizer, AutoModelForCausalLM
-from synllama.llm.vars import TEMPLATE, sampling_params_greedy
+from synllama.llm.vars import (
+    TEMPLATE,
+    sampling_params_greedy,
+    sampling_params_frugal,
+    sampling_params_frozen_only,
+    sampling_params_low_only,
+    sampling_params_medium_only,
+    sampling_params_high_only,
+)
 
 
 def generate_single_smiles(
@@ -125,16 +133,11 @@ def get_sample_params(mode: str) -> List[Dict[str, Any]]:
     """
     mode_map = {
         "greedy": sampling_params_greedy,
-        "frugal": [
-            {"temp": 0.1, "top_p": 0.1, "repeat": 1, "name": "frozen"},
-            {"temp": 0.6, "top_p": 0.5, "repeat": 1, "name": "low"},
-            {"temp": 1.0, "top_p": 0.7, "repeat": 1, "name": "medium"},
-            {"temp": 1.5, "top_p": 0.9, "repeat": 1, "name": "high"},
-        ],
-        "frozen_only": [{"temp": 0.1, "top_p": 0.1, "repeat": 5, "name": "frozen"}],
-        "low_only": [{"temp": 0.6, "top_p": 0.5, "repeat": 5, "name": "low"}],
-        "medium_only": [{"temp": 1.0, "top_p": 0.7, "repeat": 5, "name": "medium"}],
-        "high_only": [{"temp": 1.5, "top_p": 0.9, "repeat": 5, "name": "high"}],
+        "frugal": sampling_params_frugal,
+        "frozen_only": sampling_params_frozen_only,
+        "low_only": sampling_params_low_only,
+        "medium_only": sampling_params_medium_only,
+        "high_only": sampling_params_high_only,
     }
 
     if mode not in mode_map:
